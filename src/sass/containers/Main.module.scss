@@ -1,0 +1,16 @@
+@import "../var";
+
+.main {
+  padding-top: 8rem;
+  width: 96rem;
+  margin: auto;
+
+  & p {
+    font-size: 1.6rem;
+    color: $color-primary;
+
+    & span {
+      color: $color-error;
+    }
+  }
+}

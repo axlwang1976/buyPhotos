@@ -1,0 +1,33 @@
+@import "../var.scss";
+
+.navItems {
+  list-style: none;
+
+  & li {
+    display: inline-block;
+    margin: 0 1.5rem;
+  }
+
+  & li a {
+    text-decoration: none;
+    display: block;
+    font-size: 2rem;
+    color: #fff;
+    text-align: center;
+    line-height: 4rem;
+    transition: all 0.3s;
+    padding: 0 1rem;
+
+    &:hover {
+      background-color: $color-grey-light;
+      color: $color-primary;
+      border-radius: 5px;
+    }
+
+    &.active {
+      background-color: $color-grey-light;
+      color: $color-primary;
+      border-radius: 5px;
+    }
+  }
+}

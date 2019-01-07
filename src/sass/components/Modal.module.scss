@@ -1,0 +1,17 @@
+@import "../var";
+
+.modal {
+  position: fixed;
+  z-index: 999;
+  background-color: #fff;
+  width: 60rem;
+  height: 50rem;
+  border: 1px solid $color-grey-dark;
+  padding: 2rem;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  transition: all 0.3s ease-out;
+}

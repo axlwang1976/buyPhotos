@@ -1,0 +1,40 @@
+@import "../var";
+
+.search {
+  width: 100%;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  margin: 2rem 0;
+
+  & input {
+    font-family: inherit;
+    width: 100%;
+    height: 4rem;
+    padding: 1rem;
+    border: 1px solid $color-secondary;
+    border-radius: 0.5rem;
+    font-size: 1.6rem;
+  }
+}
+
+::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  font-family: inherit;
+  font-size: 1.4rem;
+}
+::-moz-placeholder {
+  /* Firefox 19+ */
+  font-family: inherit;
+  font-size: 1.4rem;
+}
+:-ms-input-placeholder {
+  /* IE 10+ */
+  font-family: inherit;
+  font-size: 1.4rem;
+}
+:-moz-placeholder {
+  /* Firefox 18- */
+  font-family: inherit;
+  font-size: 1.4rem;
+}

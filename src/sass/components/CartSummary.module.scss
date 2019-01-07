@@ -1,0 +1,22 @@
+.cart_summary {
+  width: 80%;
+  margin: auto;
+  padding-top: 10rem;
+  text-align: center;
+
+  & h1,
+  & h2 {
+    font-family: inherit;
+    margin-bottom: 3rem;
+  }
+
+  & h3 {
+    padding-top: 10rem;
+  }
+
+  & button {
+    position: relative;
+    margin: 0 1rem;
+    border-radius: 5px;
+  }
+}
