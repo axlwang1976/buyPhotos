@@ -2,8 +2,8 @@
 串接 Unsplash API 搜尋圖片並購買
 
 ## 使用技術
-React: create-react-app, react-router-dom, axios, React CSS module<br>
-API: Unsplash API
+React: create-react-app, react-router-dom, React CSS module<br>
+API: Unsplash API, axios
 
 ## 說明
 串接 Unsplash API 搜尋圖片，並利用 get 到的資訊模擬成可購買品項，可加入購物車，並加入身份認證功能
