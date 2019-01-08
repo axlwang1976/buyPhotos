@@ -26,8 +26,15 @@ const NavItems = props => {
         </NavLink>
       </li>
       <li>
-        <a href="javascript:;" onClick={props.onSignInClicked}>
-          登入
+        <a
+          href="javascript:;"
+          onClick={
+            props.loginText === '登入'
+              ? props.onSignInClicked
+              : props.onSignOutClicked
+          }
+        >
+          {props.loginText}
         </a>
       </li>
     </ul>

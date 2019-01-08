@@ -8,6 +8,8 @@ const Nav = props => {
       <NavItems
         cartCount={props.cartCount}
         onSignInClicked={props.onSignInClicked}
+        loginText={props.loginText}
+        onSignOutClicked={props.onSignOutClicked}
       />
     </nav>
   );

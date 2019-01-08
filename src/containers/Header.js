@@ -13,6 +13,8 @@ const Header = props => {
       <Nav
         cartCount={props.cartCount}
         onSignInClicked={props.onSignInClicked}
+        onSignOutClicked={props.onSignOutClicked}
+        loginText={props.loginText}
       />
     </div>
   );

@@ -1,5 +1,7 @@
 import React from 'react';
 import { Route, Switch, withRouter } from 'react-router-dom';
+import firebase from 'firebase';
+import { firebaseApp } from '../base';
 import unsplash from '../api/unsplash';
 import Header from './Header';
 import Main from './Main';
@@ -14,7 +16,8 @@ class App extends React.Component {
     cartCount: 0,
     cartItems: [],
     totalPrice: 0,
-    modalShow: false
+    modalShow: false,
+    loginText: '登入'
   };
 
   onSearchSubmit = async inputValue => {
@@ -50,14 +53,18 @@ class App extends React.Component {
   };
 
   onContinue = () => {
-    this.props.history.push('/');
-    this.setState({
-      items: [],
-      loading: false,
-      cartCount: 0,
-      cartItems: [],
-      totalPrice: 0
-    });
+    if (this.state.loginText === '登入') {
+      this.setState({ modalShow: true });
+    } else {
+      this.props.history.push('/');
+      this.setState({
+        items: [],
+        loading: false,
+        cartCount: 0,
+        cartItems: [],
+        totalPrice: 0
+      });
+    }
   };
 
   onDelete = key => {
@@ -68,17 +75,37 @@ class App extends React.Component {
 
   onSignInClicked = () => this.setState({ modalShow: true });
 
+  onSignOutClicked = async () => {
+    await firebase.auth().signOut();
+    this.setState({ loginText: '登入' });
+  };
+
   onModalClicked = () => this.setState({ modalShow: false });
+
+  authHandler = authData => {
+    this.setState({ modalShow: false, loginText: '登出' });
+  };
+
+  auth = () => {
+    const authGitHub = new firebase.auth.GithubAuthProvider();
+
+    firebaseApp
+      .auth()
+      .signInWithPopup(authGitHub)
+      .then(this.authHandler);
+  };
 
   render() {
     return (
       <>
         <Modal modalShow={this.state.modalShow} modalHide={this.onModalClicked}>
-          <SignIn />
+          <SignIn auth={this.auth} />
         </Modal>
         <Header
           cartCount={this.state.cartCount}
           onSignInClicked={this.onSignInClicked}
+          onSignOutClicked={this.onSignOutClicked}
+          loginText={this.state.loginText}
         />
         <Switch>
           <Route
